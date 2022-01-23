@@ -14,9 +14,11 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
+import com.google.firebase.messaging.FirebaseMessagingService
+import zendesk.messaging.android.push.PushNotifications
 
 /** ZendeskFlutterPlugin */
-class ZendeskFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
+class ZendeskFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, FirebaseMessagingService() {
     private val tag = "[ZendeskFlutterPlugin]"
 
     private lateinit var channel: MethodChannel
@@ -84,5 +86,9 @@ class ZendeskFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
 
     override fun onDetachedFromActivity() {
         activity = null
+    }
+
+    override fun onNewToken(newToken: String) {
+        PushNotifications.updatePushNotificationToken(newToken)
     }
 }

@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5052bbf5-353e-45bf-91d5-a62bb051977c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/arkroot/zendesk_flutter/ZendeskFlutterPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/arkroot/zendesk_flutter/ZendeskFlutterPlugin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/arkroot/zendesk_flutter/ZendeskMessaging.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/arkroot/zendesk_flutter/ZendeskMessaging.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/zendesk_flutter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/zendesk_flutter.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +54,18 @@
       <option name="presentableId" value="Default" />
       <updated>1639824360651</updated>
     </task>
+    <task id="LOCAL-00001" summary="add push token to zendesk">
+      <created>1642949089614</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1642949089614</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add push token to zendesk" />
+    <option name="LAST_COMMIT_MESSAGE" value="add push token to zendesk" />
   </component>
 </project>
