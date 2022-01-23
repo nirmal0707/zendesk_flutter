@@ -89,7 +89,8 @@ class ZendeskFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, Fi
     }
 
     override fun onNewToken(newToken: String) {
-        PushNotifications.updatePushNotificationToken(newToken)
         println("$tag - onNewToken")
+        PushNotifications.updatePushNotificationToken(newToken)
+        println("$tag - onNewToken.end")
     }
 }
