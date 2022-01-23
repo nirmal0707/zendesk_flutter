@@ -6,6 +6,7 @@ import zendesk.messaging.android.FailureCallback
 import zendesk.messaging.android.Messaging
 import zendesk.messaging.android.MessagingError
 import zendesk.messaging.android.SuccessCallback
+import zendesk.messaging.android.push.PushNotifications
 
 class ZendeskMessaging(private val plugin: ZendeskFlutterPlugin, private val channel: MethodChannel) {
 
@@ -31,5 +32,10 @@ class ZendeskMessaging(private val plugin: ZendeskFlutterPlugin, private val cha
     fun show() {
         Messaging.instance().showMessaging(plugin.activity!!, Intent.FLAG_ACTIVITY_NEW_TASK)
         println("$tag - show")
+    }
+
+    fun onNewToken(newToken: String) {
+        PushNotifications.updatePushNotificationToken(newToken)
+        println("$tag - onNewToken")
     }
 }

@@ -47,8 +47,14 @@ class ZendeskFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
                 println("$tag - Zendesk needs to initialize first")
                 return
             }
-
             zendeskMessaging.show()
+        } else if (call.method == "addPushToken") {
+            if (!isInitialize) {
+                println("$tag - Zendesk needs to initialize first")
+                return
+            }
+            val pushToken = call.argument<String>("pushToken")!!
+            zendeskMessaging.onNewToken(pushToken)
         } else {
             result.notImplemented()
         }

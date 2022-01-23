@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final String androidChannelKey =
-      'eyJzZXR0aW5nc191cmwiOiJodHRwczovL2hhbmFtaWhlbHAuemVuZGVzay5jb20vbW9iaWxlX3Nka19hcGkvc2V0dGluZ3MvMDFGR0tDRTlSNEFLWDBGOUc2Sk04Mk5RQU0uanNvbiJ9';
+      "eyJzZXR0aW5nc191cmwiOiJodHRwczovL2JlYXJjb3Zlci56ZW5kZXNrLmNvbS9tb2JpbGVfc2RrX2FwaS9zZXR0aW5ncy8wMUZCUzFNRjFOMjdLMzJQSDdTVEs3VEsxWS5qc29uIn0=";
   final String iosChannelKey =
       'eyJzZXR0aW5nc191cmwiOiJodHRwczovL2hhbmFtaWhlbHAuemVuZGVzay5jb20vbW9iaWxlX3Nka19hcGkvc2V0dGluZ3MvMDFGR1BGVFQ1Q1hFRjdRWVkwUkg2R0JYS0MuanNvbiJ9';
 
@@ -35,30 +35,36 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Zendesk Messaging Example'),
         ),
         body: Center(
-          child: Container(
-            padding: const EdgeInsets.all(12.0),
-            decoration: BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.circular(20.0),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.grey,
-                  offset: Offset(2.0, 2.0),
-                )
-              ],
-            ),
-            child: GestureDetector(
-              onTap: () {
-                ZendeskFlutter.show();
-              },
-              child: const Text(
-                "Messaging",
-                style: TextStyle(
-                  color: Colors.amberAccent,
-                  fontSize: 24.0,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              TextButton(
+                onPressed: () {
+                  ZendeskFlutter.show();
+                },
+                child: const Text(
+                  "Messaging",
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 20.0,
+                  ),
                 ),
               ),
-            ),
+              const SizedBox(height: 30),
+              TextButton(
+                onPressed: () {
+                  ZendeskFlutter.addPushToken(token: '');
+                },
+                child: const Text(
+                  "Add Token",
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 20.0,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

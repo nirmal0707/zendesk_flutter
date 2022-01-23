@@ -29,4 +29,15 @@ class ZendeskFlutter {
   static Future<void> show() async {
     await _channel.invokeMethod('show');
   }
+
+  static Future<void> addPushToken({String token=''}) async {
+    if(token.isEmpty){
+      debugPrint('Zendesk - addPushToken - token can not be empty');
+      return;
+    }
+    Map arguments = {
+      'pushToken': token,
+    };
+    await _channel.invokeMethod('addPushToken',arguments);
+  }
 }
