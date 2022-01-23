@@ -16,7 +16,7 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
 /** ZendeskFlutterPlugin */
-class ZendeskFlutterPlugin : FlutterPlugin, MethodCallHandler {
+class ZendeskFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     private val tag = "[ZendeskFlutterPlugin]"
 
     private lateinit var channel: MethodChannel
