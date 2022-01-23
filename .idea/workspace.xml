@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5052bbf5-353e-45bf-91d5-a62bb051977c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/arkroot/zendesk_flutter/ZendeskFlutterPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/arkroot/zendesk_flutter/ZendeskFlutterPlugin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +95,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add push token to zendesk" />
     <MESSAGE value="update push token to zendesk" />
-    <option name="LAST_COMMIT_MESSAGE" value="update push token to zendesk" />
+    <MESSAGE value="add fcm service fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="add fcm service fix" />
   </component>
 </project>

@@ -15,7 +15,12 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import com.google.firebase.messaging.FirebaseMessagingService
+import com.google.firebase.messaging.RemoteMessage
 import zendesk.messaging.android.push.PushNotifications
+import zendesk.messaging.android.push.PushResponsibility.MESSAGING_SHOULD_DISPLAY
+import zendesk.messaging.android.push.PushResponsibility.MESSAGING_SHOULD_NOT_DISPLAY
+import zendesk.messaging.android.push.PushResponsibility.NOT_FROM_MESSAGING
+
 
 /** ZendeskFlutterPlugin */
 class ZendeskFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, FirebaseMessagingService() {
@@ -92,5 +97,21 @@ class ZendeskFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, Fi
         println("$tag - onNewToken")
         PushNotifications.updatePushNotificationToken(newToken)
         println("$tag - onNewToken.end")
+    }
+
+    override fun onMessageReceived(remoteMessage: RemoteMessage) {
+        val responsibility = PushNotifications.shouldBeDisplayed(remoteMessage.data)
+        when (responsibility) {
+            MESSAGING_SHOULD_DISPLAY -> {
+                // This push belongs to Messaging and the SDK is able to display it to the end user
+                PushNotifications.displayNotification(context = this, messageData = remoteMessage.data)
+            }
+            MESSAGING_SHOULD_NOT_DISPLAY -> {
+                // This push belongs to Messaging but it should not be displayed to the end user
+            }
+            NOT_FROM_MESSAGING -> {
+                // This push does not belong to Messaging
+            }
+        }
     }
 }
