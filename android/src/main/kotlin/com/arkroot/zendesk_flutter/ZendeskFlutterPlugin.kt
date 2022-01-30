@@ -24,7 +24,8 @@ import zendesk.messaging.android.push.PushResponsibility.NOT_FROM_MESSAGING
 
 
 /** ZendeskFlutterPlugin */
-class ZendeskFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, FirebaseMessagingService() {
+//class ZendeskFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, FirebaseMessagingService() {
+    class ZendeskFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     private val tag = "[ZendeskFlutterPlugin]"
 
     private lateinit var channel: MethodChannel
@@ -94,28 +95,28 @@ class ZendeskFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, Fi
         activity = null
     }
 
-    override fun onNewToken(newToken: String) {
-        println("$tag - onNewToken")
-        PushNotifications.updatePushNotificationToken(newToken)
-        println("$tag - onNewToken.end")
-    }
-
-    override fun onMessageReceived(remoteMessage: RemoteMessage) {
-        val responsibility = PushNotifications.shouldBeDisplayed(remoteMessage.data)
-        when (responsibility) {
-            MESSAGING_SHOULD_DISPLAY -> {
-                Log.d("Zendesk Flutter","MESSAGING_SHOULD_DISPLAY")
-                // This push belongs to Messaging and the SDK is able to display it to the end user
-                PushNotifications.displayNotification(context = this, messageData = remoteMessage.data)
-            }
-            MESSAGING_SHOULD_NOT_DISPLAY -> {
-                Log.d("Zendesk Flutter","MESSAGING_SHOULD_NOT_DISPLAY")
-                // This push belongs to Messaging but it should not be displayed to the end user
-            }
-            NOT_FROM_MESSAGING -> {
-                Log.d("Zendesk Flutter","NOT_FROM_MESSAGING")
-                // This push does not belong to Messaging
-            }
-        }
-    }
+//    override fun onNewToken(newToken: String) {
+//        println("$tag - onNewToken")
+//        PushNotifications.updatePushNotificationToken(newToken)
+//        println("$tag - onNewToken.end")
+//    }
+//
+//    override fun onMessageReceived(remoteMessage: RemoteMessage) {
+//        val responsibility = PushNotifications.shouldBeDisplayed(remoteMessage.data)
+//        when (responsibility) {
+//            MESSAGING_SHOULD_DISPLAY -> {
+//                Log.d("Zendesk Flutter","MESSAGING_SHOULD_DISPLAY")
+//                // This push belongs to Messaging and the SDK is able to display it to the end user
+//                PushNotifications.displayNotification(context = this, messageData = remoteMessage.data)
+//            }
+//            MESSAGING_SHOULD_NOT_DISPLAY -> {
+//                Log.d("Zendesk Flutter","MESSAGING_SHOULD_NOT_DISPLAY")
+//                // This push belongs to Messaging but it should not be displayed to the end user
+//            }
+//            NOT_FROM_MESSAGING -> {
+//                Log.d("Zendesk Flutter","NOT_FROM_MESSAGING")
+//                // This push does not belong to Messaging
+//            }
+//        }
+//    }
 }
