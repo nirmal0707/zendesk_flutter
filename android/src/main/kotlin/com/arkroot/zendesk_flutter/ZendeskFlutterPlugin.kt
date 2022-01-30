@@ -4,6 +4,7 @@ import ZendeskMessaging
 import android.app.Activity
 import android.content.Intent
 import android.os.Build
+import android.util.Log
 import androidx.annotation.NonNull
 import androidx.annotation.RequiresApi
 
@@ -103,13 +104,16 @@ class ZendeskFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, Fi
         val responsibility = PushNotifications.shouldBeDisplayed(remoteMessage.data)
         when (responsibility) {
             MESSAGING_SHOULD_DISPLAY -> {
+                Log.d("Zendesk Flutter","MESSAGING_SHOULD_DISPLAY")
                 // This push belongs to Messaging and the SDK is able to display it to the end user
                 PushNotifications.displayNotification(context = this, messageData = remoteMessage.data)
             }
             MESSAGING_SHOULD_NOT_DISPLAY -> {
+                Log.d("Zendesk Flutter","MESSAGING_SHOULD_NOT_DISPLAY")
                 // This push belongs to Messaging but it should not be displayed to the end user
             }
             NOT_FROM_MESSAGING -> {
+                Log.d("Zendesk Flutter","NOT_FROM_MESSAGING")
                 // This push does not belong to Messaging
             }
         }

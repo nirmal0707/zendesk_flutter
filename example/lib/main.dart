@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
               const SizedBox(height: 30),
               TextButton(
                 onPressed: () {
-                  ZendeskFlutter.addPushToken(token: '');
+                  ZendeskFlutter.addPushToken(token: 'mm');
                 },
                 child: const Text(
                   "Add Token",
